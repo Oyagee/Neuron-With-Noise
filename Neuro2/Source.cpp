@@ -1,13 +1,15 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
-#include <sstream>
+
+
 #include <fstream>
 
+#define LINE 100
+#define COLUMN 9
+
 using namespace std;
-const int LINE = 100;
-const int COLUMN = 9;
+
 
 class Neuron {
 public:

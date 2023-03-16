@@ -1,8 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-
-
 #include <fstream>
 
 #define LINE 100
@@ -10,12 +8,11 @@
 
 using namespace std;
 
-
 class Neuron {
 public:
     int weight = 0;
     int teta = 0;
-    int omega[COLUMN + 1] = { 5, 5, 10, 6, 3, 5, 8, 15, 6, 5 }; 
+    int omega[COLUMN + 1] = { 5, 7, 5, 10, 3, 3, 8, 5, 6, 4 };
     int err = 0;
     int main_selection[LINE][COLUMN + 1] = {};
     vector <int> errors = {};
@@ -53,17 +50,17 @@ public:
 
     void AddTeta()
     {
-        cout << "Введите тету: ";
+        cout << "Ввод теты: ";
         cin >> teta;
         cout << endl;
     }
 
     void OriginOmega()
     {
-        cout << "Исходная омега: | ";
+        cout << "Начальные омеги:  ";
         for (int i = 1; i < COLUMN + 1; i++)
         {
-            cout << omega[i] << " | ";
+            cout << omega[i] << "  ";
         }
         cout << endl;
         cout << endl;
@@ -103,15 +100,15 @@ public:
                     weight += omega[i] * main_selection[point][i];
                     temp[i] = main_selection[point][i];
                 }
-                if (main_selection[point][0] == 0 and weight > teta)
+                if (main_selection[point][0] == 1 and weight > teta)
                 {
                     flag_zero = true;
                 }
-                else if (main_selection[point][0] == 0 and weight <= teta)
+                else if (main_selection[point][0] == 1 and weight <= teta)
                 {
                     ADD(omega, temp); flag_zero = false; err++;
                 }
-                else if (main_selection[point][0] != 0 and weight > teta)
+                else if (main_selection[point][0] != 1 and weight > teta)
                 {
                     SUB(omega, temp); flag_zero = false;
                 }

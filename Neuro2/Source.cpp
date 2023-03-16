@@ -17,7 +17,7 @@ public:
     int err = 0;
     int main_selection[LINE][COLUMN + 1] = {};
     vector <int> errors = {};
-    string buff;
+    string buffer;
     bool flag_zero = false;
     int temp[COLUMN + 1] = {};
     string path[COLUMN + 1] = {
@@ -71,19 +71,16 @@ public:
     {
         for (int file_count = 0; file_count < COLUMN + 1; file_count++)
         {
-
             int prev_err = 0;
-
             fstream file(path[file_count]);
-
             if (file.is_open())
             {
                 int i = 0;
-                while (getline(file, buff, '\n'))
+                while (getline(file, buffer, '\n'))
                 {
                     for (int j = 0; j < COLUMN + 1; j++)
                     {
-                        main_selection[i][j] = (int)buff[j] - 48;
+                        main_selection[i][j] = (int)buffer[j] - 48;
                     }
                     i++;
                 }
@@ -133,7 +130,6 @@ public:
             cout << "Кол - во помех: " << i << ", процент ошибки: " << errors[i] << endl;
         }
     }
-
 };
 
 int main() {

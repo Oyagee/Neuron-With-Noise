@@ -5,7 +5,6 @@
 
 #define LINE 100
 #define COLUMN 9
-
 using namespace std;
 
 class Neuron {

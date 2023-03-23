@@ -132,9 +132,10 @@ public:
 
 int main() {
     setlocale(LC_ALL, "rus");
+    cout << "Слобожанин Роман УИБ-312";
     Neuron Neuro;
-    Neuro.AddTeta(); // Пользовательский ввод омеги
-    Neuro.OriginOmega(); // Вывод исходных омег
+    Neuro.AddTeta();
+    Neuro.OriginOmega(); 
     Neuro.AI_TRAIN();
     Neuro.NoiseResult();
 }

@@ -1,8 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-
-
 #include <fstream>
 
 #define LINE 100
@@ -10,12 +8,11 @@
 
 using namespace std;
 
-
 class Neuron {
 public:
     int weight = 0;
     int teta = 0;
-    int omega[COLUMN + 1] = { 5, 5, 10, 6, 3, 5, 8, 15, 6, 5 }; 
+    int omega[COLUMN + 1] = { 5, 5, 5, 6, 3, 5, 8, 15, 6, 5 }; 
     int err = 0;
     int main_selection[LINE][COLUMN + 1] = {};
     vector <int> errors = {};
@@ -103,15 +100,15 @@ public:
                     weight += omega[i] * main_selection[point][i];
                     temp[i] = main_selection[point][i];
                 }
-                if (main_selection[point][0] == 0 and weight > teta)
+                if (main_selection[point][0] == 1 and weight > teta)
                 {
                     flag_zero = true;
                 }
-                else if (main_selection[point][0] == 0 and weight <= teta)
+                else if (main_selection[point][0] == 1 and weight <= teta)
                 {
                     ADD(omega, temp); flag_zero = false; err++;
                 }
-                else if (main_selection[point][0] != 0 and weight > teta)
+                else if (main_selection[point][0] != 1 and weight > teta)
                 {
                     SUB(omega, temp); flag_zero = false;
                 }

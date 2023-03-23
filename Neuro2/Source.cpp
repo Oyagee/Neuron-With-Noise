@@ -5,13 +5,14 @@
 
 #define LINE 100
 #define COLUMN 9
+
 using namespace std;
 
 class Neuron {
 public:
     int weight = 0;
     int teta = 0;
-    int omega[COLUMN + 1] = { 5, 7, 5, 10, 3, 3, 8, 5, 6, 4 };
+    int omega[COLUMN + 1] = { 5, 5, 5, 6, 3, 5, 8, 15, 6, 5 }; 
     int err = 0;
     int main_selection[LINE][COLUMN + 1] = {};
     vector <int> errors = {};
@@ -49,17 +50,17 @@ public:
 
     void AddTeta()
     {
-        cout << "Ввод теты: ";
+        cout << "Введите тету: ";
         cin >> teta;
         cout << endl;
     }
 
     void OriginOmega()
     {
-        cout << "Начальные омеги:  ";
+        cout << "Исходная омега: | ";
         for (int i = 1; i < COLUMN + 1; i++)
         {
-            cout << omega[i] << "  ";
+            cout << omega[i] << " | ";
         }
         cout << endl;
         cout << endl;
@@ -125,7 +126,7 @@ public:
     {
         for (int i = 0; i < errors.size(); i++)
         {
-            cout << "Количество помех в цифре: " << i << " | Количество ошибок: " << errors[i] << endl;
+            cout << "Кол - во помех: " << i << ", процент ошибки: " << errors[i] << endl;
         }
     }
 };
